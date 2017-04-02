@@ -1,0 +1,65 @@
+<!DOCTYPE html> 
+<html>
+	
+<head>
+		<title>Prakriti MSIT</title>
+		
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+		
+		<link rel="stylesheet" href="css/demo.css">
+		<link rel="stylesheet" href="css/sky-forms.css">
+		<link rel="stylesheet" href="css/sky-forms-red.css">
+		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.0/angular.min.js"></script>
+		<script src="https://www.gstatic.com/firebasejs/3.6.4/firebase.js"></script>
+		<script src="https://cdn.firebase.com/libs/angularfire/2.2.0/angularfire.min.js"></script>
+		<script type="text/javascript" src="js/appb.js"></script>
+		<script type="text/javascript" src="js/controllerb.js"></script>
+		<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+	 
+	</head>
+	<body class="bg-red">
+		<div ng-init="formx.showForm=true" ng-controller='MainForm as formx'  ng-app='PrakritiView' class="body">
+			 
+			<form  ng-if="formx.showForm"  class="sky-form animated bounceInUp">
+				<header>Log In</header>
+					
+				<fieldset>	
+					<h3>Enter Following Details</h3>	
+					<br/>		
+					<div class="row">
+						<section class="col col-6">
+							Password
+							<label class="input">
+								<i class="icon-append icon-user"></i>
+								<input ng-model="formx.formdata.UserName" type="text" placeholder="Full Name">
+							</label>
+						</section>
+						<section class="col col-6">
+								Password
+							<label class="select">
+							
+								<select ng-change='formx.formdata.members = 1; formx.AfterMembersDone=false; formx.membersAdded=[1];formx.initializeAgain();'  ng-model="formx.formdata.event" ng-init=''>
+									
+									<option ng-repeat="entry in formx.Events" ng-value="$index">{{entry.Name}}</option>
+								</select>
+								<i></i>
+							</label>
+						</section>
+						<br/>
+						<center><button type="button" ng-click='formx.initialize();' class="button">Next</button></center>
+						<br/>
+						 
+					</div>
+				</fieldset>
+				
+							<footer ng-if="formx.end">
+					<button type="button" ng-click="formx.PaymentVerify();" class="button">Confirm Payment</button>
+				</footer>
+			</form>
+			
+		</div>
+	</body>
+
+<!-- Mirrored from voky.com.ua/showcase/sky-forms/examples/demo-order.html? by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 31 Dec 2016 19:48:02 GMT -->
+</html>
